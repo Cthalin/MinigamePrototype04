@@ -11,18 +11,22 @@ public class FitShadowScript : MonoBehaviour {
 
     void Update () {
 
-        if (RotObj.transform.rotation.z >= (Shadow.transform.rotation.z - Shadow.transform.rotation.z/20) && RotObj.transform.rotation.z <= (Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
+        if (Input.GetMouseButtonUp(0))
         {
-            EndScreen.SetActive(true);
-        }
-        else if(RotObj.transform.rotation.z <= -(Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) && RotObj.transform.rotation.z >= -(Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
-        {
-            EndScreen.SetActive(true);
-        }
+            if (RotObj.transform.rotation.z >= (Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) && RotObj.transform.rotation.z <= (Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
+            {
+                EndScreen.SetActive(true);
+            }
+            else if (RotObj.transform.rotation.z <= -(Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) && RotObj.transform.rotation.z >= -(Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
+            {
+                EndScreen.SetActive(true);
+            }
 
-        if (RotObj.transform.rotation.z <= (Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) || RotObj.transform.rotation.z >= (Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
-        {
-            EndScreen.SetActive(false);
+            if (RotObj.transform.rotation.z <= (Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) || RotObj.transform.rotation.z >= (Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
+            {
+                EndScreen.SetActive(false);
+            }
         }
+        
     }
 }
