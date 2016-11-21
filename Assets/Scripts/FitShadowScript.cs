@@ -7,40 +7,31 @@ public class FitShadowScript : MonoBehaviour {
     public GameObject Shadow;
     private Quaternion _objRotation;
     private float _shadowRotation;
+    private Transform _shadowTransform;
     public GameObject EndScreen;
+    private bool _fits=false;
 
     void Start()
     {
         _shadowRotation = Shadow.transform.eulerAngles.z;
+        _shadowTransform = Shadow.transform;
     }
 
     void Update () {
 
         if (Input.GetMouseButtonUp(0))
         {
-            //if (RotObj.transform.rotation.z >= (Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) && RotObj.transform.rotation.z <= (Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
-            //{
-            //    EndScreen.SetActive(true);
-            //}
-            //else if (RotObj.transform.rotation.z <= -(Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) && RotObj.transform.rotation.z >= -(Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
-            //{
-            //    EndScreen.SetActive(true);
-            //}
-
-            //if (RotObj.transform.rotation.z <= (Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) || RotObj.transform.rotation.z >= (Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
-            //{
-            //    EndScreen.SetActive(false);
-            //}
-
             if (RotObj.transform.eulerAngles.z <= _shadowRotation + 10 && RotObj.transform.eulerAngles.z >= -90 + 10)
             {
+                _fits = true;
                 EndScreen.SetActive(true);
             }
-            else if (RotObj.transform.rotation.z <= _shadowRotation - 10 || RotObj.transform.rotation.z >= _shadowRotation + 10)
+            else if (!(RotObj.transform.eulerAngles.z <= _shadowRotation + 10 && RotObj.transform.eulerAngles.z >= -90 + 10))
             {
+                _fits = false;
+                print("Möp");
                 EndScreen.SetActive(false);
             }
-        }
-        
+        }        
     }
 }
