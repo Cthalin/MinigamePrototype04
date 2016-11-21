@@ -27,22 +27,16 @@ public class FitShadowScript : MonoBehaviour {
             //    EndScreen.SetActive(true);
             //}
 
-            if (RotObj.transform.rotation.z <= (Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) || RotObj.transform.rotation.z >= (Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
-            {
-                EndScreen.SetActive(false);
-            }
+            //if (RotObj.transform.rotation.z <= (Shadow.transform.rotation.z - Shadow.transform.rotation.z / 20) || RotObj.transform.rotation.z >= (Shadow.transform.rotation.z + Shadow.transform.rotation.z / 20))
+            //{
+            //    EndScreen.SetActive(false);
+            //}
 
             if (RotObj.transform.eulerAngles.z <= _shadowRotation + 10 && RotObj.transform.eulerAngles.z >= -90 + 10)
             {
                 EndScreen.SetActive(true);
             }
-
-            //if (RotObj.transform.rotation.z >= _shadowRotation-10 && RotObj.transform.rotation.z <= _shadowRotation+10)
-            //{
-            //    EndScreen.SetActive(true);
-            //}
-
-            if (RotObj.transform.rotation.z <= _shadowRotation - 10 || RotObj.transform.rotation.z >= _shadowRotation + 10)
+            else if (RotObj.transform.rotation.z <= _shadowRotation - 10 || RotObj.transform.rotation.z >= _shadowRotation + 10)
             {
                 EndScreen.SetActive(false);
             }
