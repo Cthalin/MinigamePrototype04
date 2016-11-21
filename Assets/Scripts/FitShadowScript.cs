@@ -32,6 +32,10 @@ public class FitShadowScript : MonoBehaviour {
             if (_dotForward <= 1.02 && _dotForward >= 0.98 && _dotUp <= 1.02 && _dotUp >= 0.98)
             {
                 EndScreen.SetActive(true);
+                RotObj.transform.position = new Vector3(Shadow.transform.position.x, Shadow.transform.position.y, RotObj.transform.position.z); //Clip to Shadow
+                RotObj.transform.rotation = new Quaternion(Shadow.transform.rotation.x, Shadow.transform.rotation.y, Shadow.transform.rotation.z, 1);
+                RotObj.GetComponent<RotateObject>().enabled = false;
+                RotObj.GetComponent<Collider>().enabled = false;
             } else if (!(_dotForward <= 1.02 && _dotForward >= 0.98 && _dotUp <= 1.02 && _dotUp >= 0.98))
             {
                 EndScreen.SetActive(false);
